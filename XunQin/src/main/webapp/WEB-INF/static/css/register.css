@@ -1,0 +1,165 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+	background:url(/images/26.jpg)no-repeat;
+}
+.container-plus
+{
+	margin:0px;
+	margin-top:50px;
+	width:100%;
+	height:100%;
+	padding-bottom:30px;
+}
+
+.shadow
+{
+	margin-left:-1%;
+	position:absolute;
+	width:100%;
+	height:110%;
+	padding-bottom:30px;
+	opacity:0.5;
+	background:#004a7c;
+	z-index:9;
+}
+
+.first
+{
+	z-index:999;
+	border-radius:10px;
+	height:180px;
+	margin-left:32.5%;
+	position:absolute;
+	padding:2%;
+	margin-top:200px;
+	width:30%;	
+	background:#fff;
+}
+
+.p-model
+{
+	font-size:18px;
+}
+
+.form-plus
+{
+	margin-left:30%;
+	position:absolute;
+	margin-top:80px;
+	width:35%;	
+	background:#fff;
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:20px;
+	border-radius:10px;
+}
+
+.input-size
+{
+	height:50px;	
+	font-size:18px;
+}
+
+.btn-submit
+{
+	width:100%;
+	border-radius:20px;
+	background:#ccc;
+}
+
+h1
+{
+	padding-bottom:30px;
+	color:#7986c7;
+}
+
+.error
+{
+	background:#F73F52;
+	border-radius:5px;
+	color:#FFEA85;
+	padding:5px;
+	display:none;
+}
+
+#remember
+{
+	margin-left: 2%;
+}
+
+#findpass
+{
+	margin-left:13%;
+	font-size: 16px;
+}
+
+.mart-status, article, body, figure,  input, li, p, select, table, tbody, td, textarea, tfoot, thead, tr, ul,a
+		{
+    		font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,"Microsoft YaHei","微软雅黑",sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+			font-size:16px;
+		}	
+
+ @media (max-width: 768px)
+ 		{
+			
+			.form-plus
+			{
+				margin:0 auto;
+				margin-top:50px;
+				width:90%;
+				background:#fff;
+				text-align:center;
+				z-index:99;
+				padding:20px 5px;
+				border-radius:10px;
+				position:absolute;
+			}
+			
+			.input-size
+			{
+				height:40px;	
+				font-size:16px;
+			}
+			
+			.error
+			{
+				background:#F73F52;
+				border-radius:5px;
+				color:#FFEA85;
+				padding:5px;
+				display:none;
+				font-size:14px;	
+			}
+			
+			.btn-submit
+			{
+				width:100%;
+				border-radius:20px;	
+				font-size:16px;
+				height:40px;
+			}
+			
+			.shadow
+			{
+				margin-left:-5%;
+				position:absolute;
+				width:100%;
+				height:620px;
+				height:100%;
+				padding-bottom:30px;
+				opacity:0.4;
+				background:#004a7c;
+				z-index:9;
+			}
+
+			#space
+			{
+				display: none;
+			}
+
+
+		}
+		     
+

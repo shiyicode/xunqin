@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.LostmessDAO">
+
+    <!-- insert语句 -->
+    <insert id="insertLostmess" parameterType="Lostmess" keyProperty="id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into lost_mess(
+        name,
+        sex,
+        height,
+        birthday,
+        native_place,
+        blood_type,
+        lost_place,
+        lost_date,
+        picture_list,
+        feature,
+        find_type,
+        other_message,
+        phone,
+        email)
+        values
+        (
+        #{name},
+        #{sex},
+        #{height},
+        #{birthday},
+        #{native_place},
+        #{blood_type},
+        #{lost_place},
+        #{lost_date},
+        #{picture_list},
+        #{feature},
+        #{find_type},
+        #{other_message},
+        #{phone},
+        #{email})
+    </insert>
+
+    <select id="selectLostmessCount" parameterType="Lostmess" resultType="int">
+        select count(*) from lost_mess
+        <where>
+            <if test="name!=null and name!='' ">
+                lost_mess.name LIKE CONCAT(CONCAT('%', #{name}),'%')
+            </if>
+            <if test="sex!=2">
+                AND lost_mess.sex = #{sex}
+            </if>
+            <if test="height!=0">
+                <![CDATA[
+                    AND lost_mess.height > #{height}-3
+                    AND lost_mess.height < #{height}+3
+                ]]>
+            </if>
+            <if test="birthday !=null and birthday!='' ">
+                AND lost_mess.birthday LIKE CONCAT(CONCAT('%', #{birthday}),'%')
+            </if>
+            <if test="native_place !=null and native_place!='' ">
+                AND lost_mess.native_place LIKE CONCAT(CONCAT('%', #{native_place}),'%')
+            </if>
+            <if test="blood_type!=6">
+                AND lost_mess.blood_type = #{blood_type}
+            </if>
+            <if test="lost_date !=null and lost_date!='' ">
+                AND lost_mess.lost_date LIKE CONCAT(CONCAT('%', #{lost_date}),'%')
+            </if>
+            <if test="find_type!=0">
+                AND lost_mess.find_type = #{find_type}
+            </if>
+        </where>
+    </select>
+
+    <!-- select语句 -->
+    <select id="selectLostmessFromId" parameterType="int" resultType="Lostmess">
+        select * from lost_mess
+        where lost_mess.id = #{id}
+    </select>
+
+    <select id="selectLostmess" resultType="Lostmess">
+        SELECT * from lost_mess
+        <where>
+            <if test="param1.name!=null and param1.name!='' ">
+                lost_mess.name LIKE CONCAT(CONCAT('%', #{param1.name}),'%')
+            </if>
+            <if test="param1.sex!=2">
+                AND lost_mess.sex = #{param1.sex}
+            </if>
+            <if test="param1.height!=0">
+                <![CDATA[
+                    AND lost_mess.height > #{param1.height}-3
+                    AND lost_mess.height < #{param1.height}+3
+                ]]>
+            </if>
+            <if test="param1.birthday !=null and param1.birthday!='' ">
+                AND lost_mess.birthday LIKE CONCAT(CONCAT('%', #{param1.birthday}),'%')
+            </if>
+            <if test="param1.native_place !=null and param1.native_place!='' ">
+                AND lost_mess.native_place LIKE CONCAT(CONCAT('%', #{param1.native_place}),'%')
+            </if>
+            <if test="param1.blood_type!=6">
+                AND lost_mess.blood_type = #{param1.blood_type}
+            </if>
+            <if test="param1.lost_date !=null and param1.lost_date!='' ">
+                AND lost_mess.lost_date LIKE CONCAT(CONCAT('%', #{param1.lost_date}),'%')
+            </if>
+            <if test="param1.find_type!=0">
+                AND lost_mess.find_type = #{param1.find_type}
+            </if>
+        </where>
+        limit #{param2},#{param3}
+    </select>
+
+    <!-- update语句 -->
+    <update id="updateLostmess" parameterType="Lostmess">
+        update lost_mess set
+        name=#{name},
+        sex=#{sex},
+        height=#{height},
+        birthday=#{birthday},
+        native_place=#{native_place},
+        blood_type=#{blood_type},
+        lost_place=#{lost_place},
+        lost_date=#{lost_date},
+        picture_list=#{picture_list},
+        feature=#{feature},
+        find_type=#{find_type},
+        other_message=#{other_message},
+        phone = #{phone},
+        email = #{email}
+        where id=#{id}
+    </update>
+
+    <!-- delete语句 -->
+    <delete id="deleteLostmess" parameterType="int">
+        delete from lost_mess
+        where id=#{id}
+    </delete>
+
+
+</mapper>

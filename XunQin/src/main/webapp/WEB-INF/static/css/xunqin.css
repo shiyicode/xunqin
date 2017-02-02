@@ -1,0 +1,160 @@
+@charset "utf-8";
+/* CSS Document */
+		.img-size
+			{
+				width:400px;
+				height:300px;
+			}
+			
+			.word-color
+			{
+				color:#70a3c4;
+			}
+			
+			.success-div
+			{
+				background:#fff;
+				color:#70a3c4;
+				margin:0 10%;
+				border-radius:5px;
+			}
+			
+			.success-div p
+			{
+				height:200px;
+				padding:10px;	
+			}
+		
+		.nav-font-color
+		{
+			color:#fff;
+		}
+		
+		.mart-status, article, body, figure,  input, li, p, select, table, tbody, td, textarea, tfoot, thead, tr, ul 
+		{
+    		font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,"Microsoft YaHei","微软雅黑",sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+			font-size:16px;
+		}
+		
+		.nav-style
+		{
+			z-index:999;
+			margin-top:-510px;
+			margin-left:150px;
+			position:absolute;
+		}
+
+        /* 轮播广告 */
+
+        .carousel {
+            height: 500px;
+            margin-bottom: 30px;
+			
+        }
+		
+
+        .carousel .item {
+            height: 500px;
+            background-color: #000;
+        }
+
+        .carousel .item img {
+            width: 100%;
+			height:100%;
+        }
+
+        .carousel-caption {
+            z-index: 10;
+        }
+
+        .carousel-caption p {
+            margin-bottom: 20px;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        /* 简介 */
+
+        .summary {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .summary .col-md-4 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* 特性 */
+
+        .feature-divider {
+            margin: 40px 0;
+        }
+
+        .feature {
+            padding: 30px 0;
+        }
+
+        .feature-heading {
+            font-size: 50px;
+            color: #2a6496;
+        }
+
+        .feature-heading .text-muted {
+            font-size: 28px;
+        }
+
+        /* 响应式布局 */
+
+        @media (max-width: 768px) {
+
+            .summary {
+                padding-right: 3px;
+                padding-left: 3px;
+            }
+
+            .carousel {
+                height: 300px;
+                margin-bottom: 30px;
+				
+            }
+
+            .carousel .item {
+                height: 300px;
+            }
+
+            .carousel img {
+                min-height: 300px;
+            }
+
+            .carousel-caption p {
+                font-size: 16px;
+                line-height: 1.4;
+				
+            }
+			
+			.p-carousel
+			{
+				margin-top:-250px;
+				font-size:36px;
+			}
+
+            .feature-heading {
+                font-size: 34px;
+            }
+
+            .feature-heading .text-muted {
+                font-size: 22px;
+            }
+			
+			.col-md-4
+			{
+				margin-top:20px;	
+			}
+        }
+
+        @media (min-width: 992px) {
+            .feature-heading {
+                margin-top: 120px;
+            }
+        }

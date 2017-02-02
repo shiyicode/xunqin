@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.BlogleaveDAO">
+
+    <!-- insert语句 -->
+    <insert id="insertBlogleave" parameterType="Blogleave" keyProperty="id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into blog_leave(
+        floor_id,
+        leave_id,
+        receive_id,
+        main_id,
+        leave_content,
+        createdate,
+        heart_num)
+        values
+        (
+        #{floor_id},
+        #{leave_id},
+        #{receive_id},
+        #{main_id},
+        #{leave_content},
+        #{createdate},
+        #{heart_num})
+    </insert>
+
+    <!-- select语句 -->
+    <select id="selectBlogleaveFromId" parameterType="int" resultType="Blogleave">
+        select * from blog_leave
+        where blog_leave.id = #{id}
+    </select>
+
+    <select id="selectBlogleave" resultType="Blogleave">
+        SELECT * from blog_leave
+        <where>
+            <if test="param1.floor_id!=0">
+                AND blog_leave.floor_id = #{param1.floor_id}
+            </if>
+            <if test="param1.leave_id!=0">
+                AND blog_leave.leave_id = #{param1.leave_id}
+            </if>
+            <if test="param1.receive_id!=0">
+                AND blog_leave.receive_id = #{param1.receive_id}
+            </if>
+            <if test="param1.main_id!=0">
+                AND blog_leave.main_id = #{param1.main_id}
+            </if>
+            <if test="param1.createdate !=null and param1.createdate!='' ">
+                AND blog_leave.createdate LIKE CONCAT(CONCAT('%', #{param1.createdate}),'%')
+            </if>
+            <if test="param1.heart_num!=0">
+                AND blog_leave.heart_num = #{param1.heart_num}
+            </if>
+
+        </where>
+        limit #{param2},#{param3}
+    </select>
+
+    <!-- update语句 -->
+    <update id="updateBlogleave" parameterType="Blogleave">
+        update blog_leave set
+        floor_id=#{floor_id},
+        leave_id=#{leave_id},
+        receive_id=#{receive_id},
+        main_id=#{main_id},
+        leave_content=#{leave_content},
+        createdate=#{createdate},
+        heart_num=#{heart_num}
+        where id=#{id}
+    </update>
+
+    <!-- delete语句 -->
+    <delete id="deleteBlogleave" parameterType="Blogleave">
+        delete from blog_leave
+        where id=#{id}
+    </delete>
+
+
+</mapper>

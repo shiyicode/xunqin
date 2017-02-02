@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.LetterDAO">
+
+    <!-- insert语句 -->
+    <insert id="insertLetter" parameterType="Letter" keyProperty="id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into letter(
+        user_id,
+        fromuser_id,
+        title,
+        content,
+        createdate,
+        isread_flag)
+        values
+        (
+        #{user_id},
+        #{fromuser_id},
+        #{title},
+        #{content},
+        #{createdate},
+        #{isread_flag})
+    </insert>
+
+    <!-- select语句 -->
+    <select id="selectLetterFromId" parameterType="int" resultType="Letter">
+        select * from letter
+        where letter.id = #{id}
+    </select>
+
+    <select id="selectCountFromId" parameterType="int" resultType="int">
+        select count(*) from letter
+        where letter.user_id = #{user_id}
+    </select>
+
+    <select id="selectLetter" resultType="Letter">
+        SELECT * from letter
+        <where>
+            <if test="param1.user_id!=0">
+                AND letter.user_id = #{param1.user_id}
+            </if>
+            <if test="param1.fromuser_id!=0">
+                AND letter.fromuser_id = #{param1.fromuser_id}
+            </if>
+            <if test="param1.title !=null and param1.title!='' ">
+                AND letter.title LIKE CONCAT(CONCAT('%', #{param1.title}),'%')
+            </if>
+            <if test="param1.createdate !=null and param1.createdate!='' ">
+                AND letter.createdate LIKE CONCAT(CONCAT('%', #{param1.createdate}),'%')
+            </if>
+            <if test="param1.isread_flag!=0">
+                AND letter.isread_flag = #{param1.isread_flag}
+            </if>
+        </where>
+        limit #{param2},#{param3}
+    </select>
+
+    <!-- update语句 -->
+    <update id="updateLetter" parameterType="Letter">
+        update letter set
+        user_id=#{user_id},
+        fromuser_id=#{fromuser_id},
+        title=#{title},
+        content=#{content},
+        createdate=#{createdate},
+        isread_flag=#{isread_flag}
+        where id=#{id}
+    </update>
+
+    <!-- delete语句 -->
+    <delete id="deleteLetter" parameterType="int">
+        delete from letter
+        where id=#{id}
+    </delete>
+
+
+</mapper>

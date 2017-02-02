@@ -1,0 +1,237 @@
+@charset "utf-8";
+/* CSS Document */
+
+.body
+{
+	padding:0 auto;
+	margin:0;
+	color:#999;
+	font-size:14px;	
+}		
+
+.btn-lg
+{
+	background:#1b435d;
+	color:#fff; 
+	opacity: 0.7; 	
+}
+
+.btn-lg:hover
+{
+	color:#fff;	
+	opacity: 1; 
+}
+
+.col-md-4
+{
+	padding-left:5%;	
+	padding-right:5%;
+	padding-bottom:5%;
+}
+
+.card
+{
+	height:270px;
+	margin:0 auto;
+	width:230px;
+	color:#2F4F4F;
+	font-size:14px;	
+	border-radius:5px;
+}
+
+.card:hover
+{
+	cursor:pointer;	
+}
+
+.card img
+{
+	height:200px;
+	width:100%;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+
+.before
+{
+	height:200px;
+	width:230px;
+	position:absolute;
+	z-index:999;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+
+.before:hover
+{
+	background:#282f44;	
+	opacity: 0.3;
+
+}
+
+.message
+{
+	text-align:center;
+	background:#364f6b;
+	color:#e0e7e9;
+	line-height:30px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+
+.btn-hover:hover
+{
+	background:#ccc;
+	color:#1b435d;
+}
+
+.icon-bar
+{
+	background:#fff;	
+}
+
+.message:hover
+{
+	color:#fff;	
+	background:#113f67;
+}
+
+#navigation
+{
+	background: #7986c7;
+}
+
+#navigation div ul li a
+{
+	color: #fff;
+}
+
+#navigation div ul li a:hover
+{
+	background: #86ee60;
+	color: #fff;
+}
+
+.success
+{
+
+	border:1px solid #ccc;
+	border-radius: 5px;
+}
+
+.success-img
+{
+	width:100px;
+	height:120px;
+	cursor: pointer;
+}
+
+.third-img
+{
+	width: 50px;
+	height: 50px;
+}
+
+			.font-num
+			{
+				background:#1fa8cf;
+				height:30px;
+				border-radius:5px;
+				font-size:7em;
+				
+			}
+			
+			.sure
+			{
+				background:#364f6b; 
+				height:70px; 
+				border-radius:10px;
+				padding-top:20px;
+			}
+			
+			.help-word
+			{
+				width:40px; 
+				height:40px; 
+				font-size:25px;
+			}
+			
+			.ad
+			{
+				background:#364f6b;
+				border-radius:10px;
+			}
+			
+			.btn-color
+			{
+				color:#58828b;
+				font-size:15px;	
+			}
+			
+			
+
+.load-message
+{
+	height:40px;
+	background:#6c7a89;
+	color: #fff;
+	padding-top:10px;
+	text-align: center;
+	font-size: 18px;
+	margin-top:50px;
+	margin-left:10%;
+	margin-right:10%;
+	border-radius:10px;
+}
+
+.load-message:hover
+{
+	background:#1fa8cf;
+}
+
+#navmenu
+{
+	display:none;
+}
+
+			
+.sx
+{
+	margin-top:30px;	
+}
+						
+
+
+ @media (max-width: 768px)
+ {
+	.ad{
+		display:none;
+		}
+		
+		.card
+		{
+			margin-top:40px;	
+		}
+		
+		#navmenu
+		{
+			display:block;
+			padding-bottom:50px;
+		} 
+		.nav-style
+		{
+			display:none;	
+		}
+
+		#menu-nav
+		{
+			display:none;
+		}
+
+		.mart-status, article, body, figure,  input, li, p, select, table, tbody, td, textarea, tfoot, thead, tr, ul 
+		{
+    		font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,"Microsoft YaHei","微软雅黑",sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+			font-size:12px;
+		}
+	
+}

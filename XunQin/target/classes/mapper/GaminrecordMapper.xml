@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.GaminrecordDAO">
+
+    <!-- insert语句 -->
+    <insert id="insertGaminrecord" parameterType="Gaminrecord" keyProperty="id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into gamin_record(
+        gamin_id,
+        user_id,
+        find_status,
+        pubdate)
+        values
+        (
+        #{gamin_id},
+        #{user_id},
+        #{find_status},
+        #{pubdate})
+    </insert>
+
+    <!-- select语句 -->
+    <select id="selectGaminrecordFromId" parameterType="int" resultType="Gaminrecord">
+        select * from gamin_record
+        where gamin_record.id = #{id}
+    </select>
+
+    <select id="selectGaminrecord" resultType="Gaminrecord">
+        SELECT * from gamin_record
+        <where>
+            <if test="param1.gamin_id!=0">
+                AND gamin_record.gamin_id = #{param1.gamin_id}
+            </if>
+            <if test="param1.user_id!=0">
+                AND gamin_record.user_id = #{param1.user_id}
+            </if>
+            <if test="param1.find_status!=0">
+                AND gamin_record.find_status = #{param1.find_status}
+            </if>
+            <if test="param1.pubdate !=null and param1.pubdate!='' ">
+                AND gamin_record.pubdate LIKE CONCAT(CONCAT('%', #{param1.pubdate}),'%')
+            </if>
+        </where>
+        limit #{param2},#{param3}
+    </select>
+
+    <!-- update语句 -->
+    <update id="updateGaminrecord" parameterType="Gaminrecord">
+        update gamin_record set
+        gamin_id=#{gamin_id},
+        user_id=#{user_id},
+        find_status=#{find_status},
+        pubdate=#{pubdate}
+        where id=#{id}
+    </update>
+
+    <!-- delete语句 -->
+    <delete id="deleteGaminrecord" parameterType="int">
+        delete from gamin_record
+        where id=#{id}
+    </delete>
+
+
+</mapper>

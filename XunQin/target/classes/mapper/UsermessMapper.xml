@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.UsermessDAO">
+
+    <!-- insert语句 -->
+    <insert id="insertUsermess" parameterType="Usermess" keyProperty="id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into usermess(
+        user_id,
+        realname_flag,
+        picture,
+        username,
+        love_count,
+        age,
+        sex,
+        telephone,
+        account_balance)
+        values
+        (
+        #{user_id},
+        #{realname_flag},
+        #{picture},
+        #{username},
+        #{love_count},
+        #{age},
+        #{sex},
+        #{telephone},
+        #{account_balance})
+    </insert>
+
+    <!-- select语句 -->
+    <select id="selectUsermessFromId" parameterType="int" resultType="Usermess">
+        select * from usermess
+        where usermess.id = #{id}
+    </select>
+
+    <select id="selectUsermess" resultType="Usermess">
+        SELECT * from usermess
+        <where>
+            <if test="param1.user_id!=0">
+                AND usermess.user_id = #{param1.user_id}
+            </if>
+            <if test="param1.realname_flag!=0">
+                AND usermess.realname_flag = #{param1.realname_flag}
+            </if>
+            <if test="param1.username !=null and param1.username!='' ">
+                AND usermess.username LIKE CONCAT(CONCAT('%', #{param1.username}),'%')
+            </if>
+            <if test="param1.love_count!=0">
+                AND usermess.love_count = #{param1.love_count}
+            </if>
+            <if test="param1.age!=0">
+                AND usermess.age = #{param1.age}
+            </if>
+            <if test="param1.sex!=2">
+                AND usermess.sex = #{param1.sex}
+            </if>
+            <if test="param1.telephone !=null and param1.telephone!='' ">
+                AND usermess.telephone LIKE CONCAT(CONCAT('%', #{param1.telephone}),'%')
+            </if>
+
+        </where>
+        limit #{param2},#{param3}
+    </select>
+
+    <!-- update语句 -->
+    <update id="updateUsermess" parameterType="Usermess">
+        update usermess set
+        realname_flag=#{realname_flag},
+        picture=#{picture},
+        username=#{username},
+        love_count=#{love_count},
+        age=#{age},
+        sex=#{sex},
+        telephone=#{telephone},
+        account_balance=#{account_balance}
+        where id=#{id}
+    </update>
+
+    <!-- delete语句 -->
+    <delete id="deleteUsermess" parameterType="int">
+        delete from usermess
+        where id=#{id}
+    </delete>
+
+
+</mapper>

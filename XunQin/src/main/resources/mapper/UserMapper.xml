@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.UserDAO">
+
+    <!-- insert语句 -->
+    <insert id="insertUser" parameterType="User" keyProperty="id">
+
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT @@IDENTITY
+        </selectKey>
+
+        insert into user(
+        qq_id,
+        wx_id,
+        wb_id,
+        qq_number,
+        wx_number,
+        wb_number,
+        is_open,
+        email,
+        password)
+        values
+        (
+        #{qq_id},
+        #{wx_id},
+        #{wb_id},
+        #{qq_number},
+        #{wx_number},
+        #{wb_number},
+        #{is_open},
+        #{email},
+        #{password})
+    </insert>
+
+    <!-- select语句 -->
+    <select id="selectUserFromId" parameterType="int" resultType="User">
+        select * from user
+        where user.id = #{id}
+    </select>
+
+    <select id="selectUser" resultType="User">
+        SELECT * from user
+        <where>
+            <if test="param1.qq_id!=0">
+                AND user.qq_id = #{param1.qq_id}
+            </if>
+            <if test="param1.wx_id!=0">
+                AND user.wx_id = #{param1.wx_id}
+            </if>
+            <if test="param1.wb_id!=0">
+                AND user.wb_id = #{param1.wb_id}
+            </if>
+            <if test="param1.is_open!=0">
+                AND user.is_open = #{param1.is_open}
+            </if>
+            <if test="param1.email !=null and param1.email!='' ">
+                AND user.email = #{param1.email}
+            </if>
+            <if test="param1.password !=null and param1.password!='' ">
+                AND user.password = #{param1.password}
+            </if>
+
+        </where>
+        limit #{param2},#{param3}
+    </select>
+
+    <!-- update语句 -->
+    <update id="updateUser" parameterType="User">
+        update user set
+        qq_id=#{qq_id},
+        wx_id=#{wx_id},
+        wb_id=#{wb_id},
+        qq_number=#{qq_number},
+        wx_number=#{wx_number},
+        wb_number=#{wb_number},
+        is_open=#{is_open},
+        email=#{email},
+        password=#{password}
+        where id=#{id}
+    </update>
+
+    <!-- delete语句 -->
+    <delete id="deleteUser" parameterType="int">
+        delete from user
+        where id=#{id}
+    </delete>
+
+
+</mapper>

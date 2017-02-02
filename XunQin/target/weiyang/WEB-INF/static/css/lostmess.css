@@ -1,0 +1,189 @@
+@charset "utf-8";
+/* CSS Document */
+		body {
+            padding-top: 50px;
+            color: #5a5a5a;
+			margin:0;
+			padding-right:0;
+        }
+		
+		.mess-font-color
+		{
+			color:#8BDBF5;
+			padding-right:0;
+		}
+		
+		.mess-content
+		{
+			padding-right:0;
+			margin-right:0;
+		}
+		
+		.relation-way
+		{
+			color:#53435b;
+			margin-top:20px
+		}
+		
+		.name
+		{
+			font-size:48px; 
+			margin-top:30px; 
+			padding-bottom:20px;
+			border-bottom:1px solid #718CA1;;
+		}
+		
+		.row-offset
+		{
+			margin-left:15%;	
+			margin-right:15%;	
+		}
+		
+		.kuang
+		{
+			width:100%; 
+			padding-top:8px;
+			background:#59748C;
+			color:#fff;
+			border-bottom:1px solid #718CA1;
+			padding-bottom:10px;
+			border-top-left-radius:10px;
+			border-top-right-radius:10px;
+		}
+		
+		.btn-color-font
+		{
+			color:#8BDBF5;
+			font-size:15px;	
+		}
+		
+		.all-mess
+		{
+			margin-top:30px; 
+			margin-left:15%; 
+			margin-right:15%;
+			background:#F8F8F8;
+			border-radius:10px;
+			border:1px solid #ccc;
+			margin-bottom:20px;
+		}
+		
+		.lost-header
+		{
+			font-size:36px;
+			text-align:center;
+			padding-bottom:30px;
+			margin-left:5%;	
+		}
+	
+		
+		.mart-status, article, body, figure,  input, li, p, select, table, tbody, td, textarea, tfoot, thead, tr, ul 
+		{
+    		font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,"Microsoft YaHei","微软雅黑",sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+			font-size:16px;
+		}
+				
+		.col-md-7-border
+		{
+			line-height:30px;
+			width:100%
+		}
+		
+		.carousel-border
+		{
+			border:#ccc 1px solid;
+			border-radius:5px;
+			height:325px;
+			margin:0 auto;
+			width:70%;
+			margin-bottom: 20px;
+		}
+		
+		h1
+		{
+			margin-left:5%;
+			padding-bottom:20px;	
+		}
+		
+		h2
+		{
+			padding-bottom:20px;	
+		}
+		
+		.carousel {
+                height: 322px;
+				width:100%;
+				border:5px solid #fff;
+				border-radius:5px;
+            }
+
+            .carousel .item {
+                height: 322px;
+            }
+
+            .carousel   .item img {
+                height: 96%;
+				width:auto;
+				margin: 0 auto;
+            }
+			
+			.row-top
+			{
+				margin-top:0px;	
+			}
+			
+			.icon-bar
+			{
+				background:#fff;	
+			}
+
+		
+		
+		@media (max-width: 768px)
+ 		{
+			.all-mess
+			{
+				margin-left:5%; 
+				margin-right:5%
+			}
+			
+			.mess-content
+			{
+				padding-right:5%;
+			}
+			.col-md-4-border
+			{
+				border-bottom:1px #ccc solid;
+			}
+			
+			.lost-header
+			{
+				margin-top:20px;	
+				margin-left:0;
+			}
+			
+			.row-offset
+			{
+				margin-left:0;	
+			}
+			
+			.carousel-border
+			{
+				margin-left:0;
+				width:100%;
+				margin-bottom: 20px;
+			}
+			
+			.row-top
+			{
+				margin-top:10px;	
+			}
+			
+			.all-mess
+		{
+			margin-left:5%; margin-right:5%
+		}
+			
+		}
+
+

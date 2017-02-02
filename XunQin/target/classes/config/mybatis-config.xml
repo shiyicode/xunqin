@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 命名空间 -->
+    <typeAliases>
+        <typeAlias alias="User" type="com.web.entity.User"/>
+        <typeAlias alias="Usermess" type="com.web.entity.Usermess"/>
+        <typeAlias alias="Realmess" type="com.web.entity.Realmess"/>
+        <typeAlias alias="Lostrecord" type="com.web.entity.Lostrecord"/>
+        <typeAlias alias="Letter" type="com.web.entity.Letter"/>
+        <typeAlias alias="Lostmess" type="com.web.entity.Lostmess"/>
+        <typeAlias alias="Gaminrecord" type="com.web.entity.Gaminrecord"/>
+        <typeAlias alias="Gaminmess" type="com.web.entity.Gaminmess"/>
+        <typeAlias alias="Blogmain" type="com.web.entity.Blogmain"/>
+        <typeAlias alias="Blogleave" type="com.web.entity.Blogleave"/>
+    </typeAliases>
+
+
+
+    <!-- 映射map -->
+    <mappers>
+    </mappers>
+</configuration>
